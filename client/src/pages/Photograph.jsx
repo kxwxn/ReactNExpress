@@ -15,14 +15,18 @@ const Photograph = () => {
         fetchData();
     }, [])
 
+    const openImageInNewTab = (e) => {
+        window.open(e, 'target="_self"');
+    };
+
     const displayImage = uri.map((item) => {
-        return (<div key={item.id}>
-            <img src={item.uri} />
+        return (<div className={styles.pics} key={item.id} onClick={() => openImageInNewTab(item.uri)}>
+            <img src={item.uri} className={styles.image} />
         </div>)
     })
 
     return (
-        <div>
+        <div className={styles.container}>
             {displayImage}
         </div>
     )

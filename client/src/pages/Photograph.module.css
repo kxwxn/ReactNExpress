@@ -1,14 +1,15 @@
 .container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .pics {
-    width: 448px;
-    padding: 24px;
+    width: 25%;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
-img {
-    width: 400px;
-    object-fit: contain;
-    object-position: 50% 50%;
+.image {
+    width: 100%;
+    height: auto;
 }

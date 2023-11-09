@@ -8,7 +8,7 @@ import Landing from "./pages/Landing";
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.container}>
       <Routes>
         <Route element={<Landing />} path="/" />
         <Route element={<Photograph />} path="/photograph" />
