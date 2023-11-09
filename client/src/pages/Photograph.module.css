@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+}
+
+.pics {
+    width: 448px;
+    padding: 24px;
+}
+
+img {
+    width: 400px;
+    object-fit: contain;
+    object-position: 50% 50%;
+}
