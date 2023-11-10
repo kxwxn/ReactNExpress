@@ -15,8 +15,8 @@ const Photograph = () => {
         fetchData();
     }, [])
 
-    const openImageInNewTab = (e) => {
-        window.open(e, 'target="_self"');
+    const openImageInNewTab = (url) => {
+        window.open(url, '_blank')
     };
 
     const displayImage = uri.map((item) => {
