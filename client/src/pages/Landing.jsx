@@ -19,8 +19,8 @@ const Landing = () => {
 
     const displayImage = pictures.map((item) => {
         return (
-            <div>
-                <img src={item.uri} />
+            <div className={styles.frame}>
+                <img src={item.uri} className={styles.image} />
             </div>
         )
     });

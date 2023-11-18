@@ -51,3 +51,44 @@ a {
         transform: translateX(-100%);
     }
 }
+
+.cart {
+    color: #222;
+    z-index: 1000;
+    /* 이 코드는 3차원 공간에서 요소의 깊이를 설정합니다.*/
+    position: fixed;
+    width: 0.5rem;
+    /* 이 코드는 너비를 0.5rem 으로 설정합니다.*/
+    height: 6rem;
+    /* 이 코드는 높이를 6rem 으로 설정합니다.*/
+    top: 120px;
+    /* 이 코드는 위에서 120px 떨어져 있게 합니다.*/
+    float: right;
+    /* 이 코드는 오른쪽으로 떠있게 합니다.*/
+    right: 90px;
+    /* 이 코드는 오른쪽으로 90px 이동합니다.*/
+    display: flex;
+    /* 이 코드는 가로로 나열되게 합니다.*/
+    vertical-align: middle;
+    /* 이 코드는 수직 정렬을 합니다.*/
+    text-align: center;
+    box-shadow: 1px 2px 10px #555;
+    border-radius: 100%;
+    /* 이 코드는 테두리를 둥글게 만듭니다.*/
+    cursor: pointer;
+    /* 이 코드는 마우스 커서를 손가락 모양으로 바꿔줍니다.*/
+    background-image: url(/public/assets/static/cart.gif);
+    background-size: cover;
+    background-color: seagreen;
+}
+
+/* 
+position: fixed;는 CSS 속성 중 하나로, 요소의 위치를 고정된 위치에 유지하는 데 사용됩니다. 이 속성은 스크롤되어도 요소가 화면의 동일한 위치에 고정됩니다.
+
+주로 사용되는 position 속성 값은 다음과 같습니다:
+
+static: 기본 값. 요소는 일반적인 문서 흐름에 따라 배치됩니다.
+relative: 요소는 일반적인 문서 흐름에 따라 배치되며, top, right, bottom, left와 함께 사용하여 요소의 위치를 상대적으로 조정할 수 있습니다.
+absolute: 요소는 가장 가까운 상위(부모) 요소 중 position 속성이 relative, absolute, 또는 fixed로 설정된 요소를 기준으로 배치됩니다.
+fixed: 요소는 브라우저 창을 기준으로 위치가 고정됩니다. 스크롤해도 화면 상에서 움직이지 않습니다.
+position: fixed;는 주로 화면 상단에 고정된 네비게이션 바나 미니맵과 같이 항상 화면에 보여야 하는 요소를 만들 때 사용됩니다. 이를 통해 사용자가 스크롤하거나 페이지를 스크롤할 때 요소가 화면 상단 또는 다른 지정된 위치에 고정됩니다. */

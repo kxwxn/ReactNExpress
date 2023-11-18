@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import styles from './Photograph.module.css'
+import useCartStore from '../store/cartState'
 
 const Photograph = () => {
+    const { cart, addToCart } = useCartStore();
+
     const [uri, setUri] = useState([])
 
     const fetchData = () => {
@@ -19,9 +22,14 @@ const Photograph = () => {
         window.open(url, '_blank')
     };
 
+
+
     const displayImage = uri.map((item) => {
-        return (<div className={styles.pics} key={item.id} onClick={() => openImageInNewTab(item.uri)}>
-            <img src={item.uri} className={styles.image} />
+        return (<div className={styles.pics} key={item.id} >
+            <img src={item.uri} className={styles.image} onClick={() => openImageInNewTab(item.uri)} />
+            <p>No.{item.id}</p>
+            <p>{item.price}</p>
+            <button type="button" onClick={() => addToCart(item)}>add to cart</button>
         </div>)
     })
 
@@ -33,3 +41,5 @@ const Photograph = () => {
 }
 
 export default Photograph
+
+
