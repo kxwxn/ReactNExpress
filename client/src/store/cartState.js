@@ -17,8 +17,6 @@ const useCartStore = create(
   )
 );
 
-//subtractFromCart 함수가 제대로 작동하지 않는다.
-
 export default useCartStore;
 
 //using zustand library to state management, and with persist it can also keep the data in sessionstorage until the session is finished.

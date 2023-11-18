@@ -5,11 +5,25 @@ import useCartStore from '../store/cartState'
 const Cart = () => {
   const { cart, subtractFromCart, deleteAll } = useCartStore();
 
-  const cartList = cart.map((item) => {
+  const sortById = (a, b) => a.id - b.id;
+
+  const sortedCart = cart.slice().sort(sortById);
+
+  //slice()에 인수가 없으면 전체 배열을 복사한다. 
+
+  const countItems = (items, id) => items.filter(item => item.id === id).length;
+
+
+
+  const cartList = sortedCart.map((item) => {
+
+    const itemCount = countItems(cart, item.id);
+
     return (<div className={styles.container}>
       {/* <img src={item.uri} className={styles.img} /> */}
       <p>{item.id}</p>
       <p>{item.price}</p>
+      <p>Count: {itemCount}</p>
       <button onClick={() => subtractFromCart(item.id)}>delete from cart</button>
     </div>)
   })
@@ -26,9 +40,6 @@ const Cart = () => {
 export default Cart
 
 
-// Photograph에서 ADD 버튼을 누른 아이템들을 Cart 페이지에서 보여준다.
-// Cart 페이지에서는 ADD 버튼을 누른 아이템들을 삭제할 수 있다.
-// 그 아이템들은 map을 사용하여 보여준다.
-// map으로 그리는 아이템들은 데이터가 상태관리를 통해 전달된다.
-// Cart 페이지에서는 아이템들의 가격을 합산하여 보여준다.
-// Cart 페이지에서는 결제하기 버튼을 누를 수 있다.
+//Cart 페이지에 들어온 상품이 id 순으로 정렬되야한다. 현재는 추가된 순서로 되어있다(default programming tempo)
+//같은 상품이 몇번씩들어올때는 그 상품이 계속 그려지는게 아니라, count 형식으로 + 1 -  이런식으로 그린다. 
+//total price 로 표시한다.
