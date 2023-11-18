@@ -10,7 +10,7 @@ const Cart = () => {
       {/* <img src={item.uri} className={styles.img} /> */}
       <p>{item.id}</p>
       <p>{item.price}</p>
-      <button onClick={subtractFromCart}>delete from cart</button>
+      <button onClick={() => subtractFromCart(item.id)}>delete from cart</button>
     </div>)
   })
 

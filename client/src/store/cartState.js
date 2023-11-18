@@ -5,11 +5,9 @@ const useCartStore = create(
   persist(
     (set) => ({
       cart: [],
-      addToCart: (item) => set((state) => ({ cart: [...state.cart, item] })),
-      subtractFromCart: (itemId) =>
-        set((state) => ({
-          cart: state.cart.filter((item) => item.id !== itemId),
-        })),
+      addToCart: (i) => set((state) => ({ cart: [...state.cart, i] })),
+      subtractFromCart: (id) =>
+        set((state) => ({ cart: state.cart.filter((item) => item.id !== id) })),
       deleteAll: () => set({ cart: [] }),
     }),
     {
