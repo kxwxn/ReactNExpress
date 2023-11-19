@@ -5,7 +5,37 @@ const useCartStore = create(
   persist(
     (set) => ({
       cart: [],
-      addToCart: (i) => set((state) => ({ cart: [...state.cart, i] })),
+      addToCart: (i) =>
+        set((state) => {
+          const existingItem = state.cart.find((item) => item.id === i.id);
+          if (existingItem) {
+            // If the item already exists in the cart, increase the quantity
+            return {
+              cart: state.cart.map((item) =>
+                item.id === i.id
+                  ? { ...item, quantity: item.quantity + i.quantity }
+                  : item
+              ),
+            };
+          } else {
+            // If the item does not exist in the cart, add it
+            return { cart: [...state.cart, i] };
+          }
+        }),
+      increaseQuantity: (id) =>
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+          ),
+        })),
+      decreaseQuantity: (id) =>
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.id === id && item.quantity > 1
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          ),
+        })),
       subtractFromCart: (id) =>
         set((state) => ({ cart: state.cart.filter((item) => item.id !== id) })),
       deleteAll: () => set({ cart: [] }),
