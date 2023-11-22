@@ -2,7 +2,9 @@ import create from "zustand";
 
 const useCartStore = create((set) => ({
   cart: [],
-  addToCart: (item) => set((states) => ({ ...states.cart, item })),
+  addToCart: (dataFromBtn) => {
+    set((state) => ({ ...state.cart, dataFromBtn }));
+  },
 }));
 
 export default useCartStore;

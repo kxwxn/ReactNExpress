@@ -5,20 +5,18 @@ import useCartStore from '../store/cartState';
 
 
 const Photograph = () => {
-
-    const [tyo, setTyo] = useState([]);
-    const { cart, addToCart } = useCartStore();
-    const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCartStore();
+    const [picture, setPicture] = useState([]);
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:4000/api/tokyo");
-            const qData = response.data.map((item) => ({
-                ...item,
-                quantity: 1,    // axios로 받은 tokyo.json 데이터에 quantity라는 key를 value 1을 넣어서 추가했다.
-            }))
+            const response = await axios.get('http://localhost:4000/api/tokyo')
+            setPicture(response.data.map((rawData) => ({
+                ...rawData, quantity: 1
+            })))
+
         } catch (err) {
-            console.log(err)
+            throw err
         }
     }
 
@@ -26,36 +24,49 @@ const Photograph = () => {
         fetchData();
     }, [])
 
-    const increaseQuantity = () => {
-        setQuantity(quantity + 1)
-    }
 
-    const decreaseQuantity = () => {
-        setQuantity(quantity - 1)
-    }
 
-    const displayImage = tyo.map((i) => {
+
+
+
+    const displayImages = picture.map((i, index) => {
+
+        const subtract = () => {
+            setPicture(picture.map((item, itemIndex) =>
+                (itemIndex === index ? { ...item, quantity: item.quantity - 1 } : item)
+            ));
+        }
+
+
+        // const subtract = () => {
+        //     setPicture(picture.map(item => ({ ...item, quantity: item.quantity - 1 })));
+        //   }
+
+        const add = () => {
+            setPicture(picture.map((item, itemIndex) =>
+                (itemIndex === index ? { ...item, quantity: item.quantity + 1 } : item)
+            ));
+        }
 
         return (
             <div className={styles.pics}>
                 <img src={i.uri} className={styles.image} />
                 <p>No.{i.id}</p>
-                <p>Price:{i.price}</p>
-                <div className={styles.addSub}>
-                    <button onClick={decreaseQuantity}>-</button>
+                <p>{i.price}</p>
+                <p>
+                    <button onClick={subtract}>-</button>
                     <input size='2' style={{ textAlign: "center" }} value={i.quantity} />
-                    <button onClick={increaseQuantity}>+</button>
-                </div>
-                <button onClick={() => addToCart(i)}>ADD TO CART</button>
+                    <button onClick={add} >+</button>
+                </p>
+                <button onClick={(i) => addToCart(i)}>ADD TO CART</button>
             </div>
         )
     })
 
 
-
     return (
         <div className={styles.container}>
-            {displayImage}
+            {displayImages}
         </div>
     )
 }
