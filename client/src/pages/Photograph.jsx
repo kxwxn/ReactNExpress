@@ -40,7 +40,7 @@ const Photograph = () => {
 
         // const subtract = () => {
         //     setPicture(picture.map(item => ({ ...item, quantity: item.quantity - 1 })));
-        //   }
+        //   } --> 문제의 함수, 전체 quantity를 변경한다.
 
         const add = () => {
             setPicture(picture.map((item, itemIndex) =>
@@ -48,6 +48,7 @@ const Photograph = () => {
             ));
         }
 
+        
         return (
             <div className={styles.pics}>
                 <img src={i.uri} className={styles.image} />
