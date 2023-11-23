@@ -1,13 +1,27 @@
 import create from "zustand";
+import { persist } from "zustand/middleware";
 
-const useCartStore = create((set) => ({
-  cart: [],
-  addToCart: (dataFromBtn) => {
-    set((state) => ({ ...state.cart, dataFromBtn }));
-  },
-}));
+const useCartStore = create(
+  persist(
+    (set) => ({
+      cart: [],
+      addToCart: (dataFromBtn) =>
+        set((state) => {
+          const testIndex = dataFromBtn.id.findIndex(()=>(
+            
+          ))
+          if(){}else{
+            return (
+              cart : {[...state.cart,{...dataFromBtn,quantity:1}]}
+            )
+          }
+        }),
+    }),
+    {
+      name: "cart_storage", // unique name
+      getStorage: () => localStorage, // use sessionStorage
+    }
+  )
+);
 
 export default useCartStore;
-
-//state는 현재 this 의 상태이다.
-// ... 을 사용하는 이유는

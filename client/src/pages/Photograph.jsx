@@ -11,9 +11,10 @@ const Photograph = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get('http://localhost:4000/api/tokyo')
-            setPicture(response.data.map((rawData) => ({
-                ...rawData, quantity: 1
-            })))
+            setPicture(response.data.map((rawData) => (
+                { ...rawData, quantity: 1 }
+                // 원래 배열의 요소들인 개체들을 펼친다음에 quantity 라는 속성을 주고 1의 값을준다.
+            )))
 
         } catch (err) {
             throw err
@@ -31,13 +32,13 @@ const Photograph = () => {
 
     const displayImages = picture.map((i, index) => {
 
+        // <button onClick={add}>같은 요소의 구별이 없는 경우 map의 두번째 인자로 index를 주면 렉시컬 환경에 저장이 되어서 각 콜백함수마다 구별점이 생긴다.
+
         const subtract = () => {
             setPicture(picture.map((item, itemIndex) =>
-                (itemIndex === index ? { ...item, quantity: item.quantity - 1 } : item)
+                (itemIndex === index && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item)
             ));
         }
-
-
         // const subtract = () => {
         //     setPicture(picture.map(item => ({ ...item, quantity: item.quantity - 1 })));
         //   } --> 문제의 함수, 전체 quantity를 변경한다.
@@ -47,8 +48,10 @@ const Photograph = () => {
                 (itemIndex === index ? { ...item, quantity: item.quantity + 1 } : item)
             ));
         }
+        // index에 현재 onClick={add} 이벤트가 일어난 태그의 인덱스가 있다
+        // 그리고 add 함수 블록 내에서 다시 map으로 전체 배열이 그려지는데
+        // 그 배열 하나 하나를 index 와 비교를 하고 이벤트가 일어난 itemIndex가 같으면 quantity를 추가한다.
 
-        
         return (
             <div className={styles.pics}>
                 <img src={i.uri} className={styles.image} />
@@ -57,9 +60,10 @@ const Photograph = () => {
                 <p>
                     <button onClick={subtract}>-</button>
                     <input size='2' style={{ textAlign: "center" }} value={i.quantity} />
-                    <button onClick={add} >+</button>
+                    <button onClick={add}>+</button>
                 </p>
-                <button onClick={(i) => addToCart(i)}>ADD TO CART</button>
+                <p>index:{index}</p>
+                <button onClick={() => addToCart(i)}>ADD TO CART</button>
             </div>
         )
     })
