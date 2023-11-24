@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import styles from './ThreeD.module.css'
+import React, { useEffect, useRef } from "react";
+import * as THREE from "three";
+import styles from "./ThreeD.module.css";
 
 const ThreeD = () => {
   // 1. ref를 사용하여 실제 DOM 요소를 참조할 변수 생성
@@ -8,7 +8,14 @@ const ThreeD = () => {
 
   // 2. Three.js 관련 객체를 useRef를 사용하여 생성 및 참조
   const scene = useRef(new THREE.Scene()); // Three.js 씬을 참조하기 위한 ref
-  const camera = useRef(new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)); // 카메라를 참조하기 위한 ref
+  const camera = useRef(
+    new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    )
+  ); // 카메라를 참조하기 위한 ref
   const renderer = useRef(new THREE.WebGLRenderer()); // 렌더러를 참조하기 위한 ref
   const cube = useRef(null); // geometry 객체를 참조하기 위한 ref
 
