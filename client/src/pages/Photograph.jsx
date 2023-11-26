@@ -50,9 +50,17 @@ const Photograph = () => {
     // 그리고 add 함수 블록 내에서 다시 map으로 전체 배열이 그려지는데
     // 그 배열 하나 하나를 index 와 비교를 하고 이벤트가 일어난 itemIndex가 같으면 quantity를 추가한다.
 
+    const newWindowPic = (url) => {
+      window.open(url, "_blank");
+    };
+
     return (
       <div className={styles.pics}>
-        <img src={i.uri} className={styles.image} />
+        <img
+          src={i.uri}
+          className={styles.image}
+          onClick={() => newWindowPic(i.uri)}
+        />
         <p>No.{i.id}</p>
         <p>{i.price}</p>
         <p>
@@ -75,3 +83,5 @@ export default Photograph;
 // 수량 변경 button 은 최소값을 1로 지정한다.
 // 수량 변경을 img 태그 각각 따로 동작하게 한다. -> 이 말은 모든 img 태그에 대해서 각자의 state가 필요함.
 // 공통의 state 를 쓰는게 아닌 각각의 img 태그들이 각자의 변수를 담을 곳을 만들어야한다. item 에 quantity 키를 추가하고 거기에 담는다.
+
+// 각 아이템<img> 클릭시 원본 크기 탭 띄우기.-> window.open(this.src,"_blank")

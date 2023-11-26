@@ -1,10 +1,8 @@
-import React from 'react'
-import useCartStore from '../store/cartState'
+import React from "react";
+import useCartStore from "../store/cartState";
 
 const Cart = () => {
-
-  const { cart } = useCartStore();
-
+  const { cart, deleteAllItem, totalPrice } = useCartStore();
 
   const displayCart = cart.map((item, index) => (
     <div>
@@ -13,13 +11,15 @@ const Cart = () => {
       <p>qunatity:{item.quantity}</p>
       {/* <p>index:{index}</p> */}
     </div>
-  ))
+  ));
 
   return (
     <div>
       {displayCart}
+      <p>TOTAL PRICE : {totalPrice} </p>
+      <button onClick={deleteAllItem}>delete all item</button>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
