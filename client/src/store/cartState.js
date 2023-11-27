@@ -11,19 +11,50 @@ const useCartStore = create(
           const testIndex = state.cart.findIndex(
             (cartItem) => cartItem.id === dataFromBtn.id
           );
+
           let newCart = [...state.cart];
+
           if (testIndex >= 0) {
-            const newCart = [...state.cart];
             newCart[testIndex].quantity += dataFromBtn.quantity;
           } else {
             newCart = [...newCart, dataFromBtn];
           }
+
           const sum = newCart.reduce((acc, cur) => {
             return acc + cur.price * cur.quantity;
           }, 0);
-          return { cart: newCart, totalPrice: sum };
+
+          return { cart: newCart.sort((a, b) => a.id - b.id), totalPrice: sum };
         }),
-      deleteAllItem: () => set((state) => ({ cart: [] })),
+
+      deleteAllItem: () => set((state) => ({ cart: [], totalPrice: 0 })),
+
+      updateCartItemQuantity: (id, quantity) =>
+        set((state) => {
+          const newCart = state.cart.map((item) =>
+            item.id === id ? { ...item, quantity } : item
+          );
+
+          const totalPrice = newCart.reduce(
+            (total, item) => total + item.price * item.quantity,
+            0
+          );
+
+          return { cart: newCart, totalPrice };
+        }),
+      deleteFromCart: (deleteItemIndex) =>
+        set((state) => {
+          const newCart = state.cart.filter(
+            (item) => item.id !== deleteItemIndex
+          );
+
+          const totalPrice = newCart.reduce(
+            (total, item) => total + item.price * item.quantity,
+            0
+          );
+
+          return { cart: newCart, totalPrice };
+        }),
     }),
 
     {

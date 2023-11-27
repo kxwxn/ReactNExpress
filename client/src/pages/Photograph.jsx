@@ -50,25 +50,24 @@ const Photograph = () => {
     // 그리고 add 함수 블록 내에서 다시 map으로 전체 배열이 그려지는데
     // 그 배열 하나 하나를 index 와 비교를 하고 이벤트가 일어난 itemIndex가 같으면 quantity를 추가한다.
 
-    const newWindowPic = (url) => {
+    const newWindowPic = (url, index) => {
       window.open(url, "_blank");
     };
 
     return (
-      <div className={styles.pics}>
+      <div className={styles.pics} key={index}>
         <img
           src={i.uri}
           className={styles.image}
           onClick={() => newWindowPic(i.uri)}
         />
         <p>No.{i.id}</p>
-        <p>{i.price}</p>
+        <p>{i.price}円</p>
         <p>
           <button onClick={subtract}>-</button>
           <input size="2" style={{ textAlign: "center" }} value={i.quantity} />
           <button onClick={add}>+</button>
         </p>
-        <p>index:{index}</p>
         <button onClick={() => addToCart(i)}>ADD TO CART</button>
       </div>
     );
