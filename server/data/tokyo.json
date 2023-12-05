@@ -1,125 +1,153 @@
 [
-  { "uri": "assets/images/TOKYO1.jpeg", "id": 1 },
-  { "uri": "assets/images/TOKYO2.jpeg", "id": 2 },
-  { "uri": "assets/images/TOKYO3.jpeg", "id": 3 },
-  { "uri": "assets/images/TOKYO4.jpeg", "id": 4 },
-  { "uri": "assets/images/TOKYO5.jpeg", "id": 5 },
-  { "uri": "assets/images/TOKYO6.jpeg", "id": 6 },
-  { "uri": "assets/images/TOKYO7.jpeg", "id": 7 },
-  { "uri": "assets/images/TOKYO8.jpeg", "id": 8 },
-  { "uri": "assets/images/TOKYO9.jpeg", "id": 9 },
-  { "uri": "assets/images/TOKYO10.jpeg", "id": 10 },
-  { "uri": "assets/images/TOKYO11.jpeg", "id": 11 },
+  { "uri": "assets/images/TOKYO1.jpeg", "price": "3000", "id": 1 },
+  { "uri": "assets/images/TOKYO2.jpeg", "price": "6666", "id": 2 },
+  { "uri": "assets/images/TOKYO3.jpeg", "price": "3333", "id": 3 },
+  { "uri": "assets/images/TOKYO4.jpeg", "price": "4444", "id": 4 },
+  { "uri": "assets/images/TOKYO5.jpeg", "price": "5553", "id": 5 },
+  { "uri": "assets/images/TOKYO6.jpeg", "price": "3300", "id": 6 },
+  { "uri": "assets/images/TOKYO7.jpeg", "price": "2900", "id": 7 },
+  { "uri": "assets/images/TOKYO8.jpeg", "price": "6000", "id": 8 },
+  { "uri": "assets/images/TOKYO9.jpeg", "price": "7000", "id": 9 },
+  { "uri": "assets/images/TOKYO10.jpeg", "price": "2000", "id": 10 },
+  { "uri": "assets/images/TOKYO11.jpeg", "price": "1000", "id": 11 },
   {
     "uri": "assets/images/TOKYO12.jpeg",
+    "price": "1200",
     "id": 12
   },
   {
     "uri": "assets/images/TOKYO13.jpeg",
+    "price": "2300",
     "id": 13
   },
   {
     "uri": "assets/images/TOKYO14.jpeg",
+    "price": "2400",
     "id": 14
   },
   {
     "uri": "assets/images/TOKYO15.jpeg",
+    "price": "6400",
     "id": 15
   },
   {
     "uri": "assets/images/TOKYO16.jpeg",
+    "price": "4400",
     "id": 16
   },
   {
     "uri": "assets/images/TOKYO17.jpeg",
+    "price": "3300",
     "id": 17
   },
   {
     "uri": "assets/images/TOKYO18.jpeg",
+    "price": "7500",
     "id": 18
   },
   {
     "uri": "assets/images/TOKYO19.jpeg",
+    "price": "5300",
     "id": 19
   },
   {
     "uri": "assets/images/TOKYO20.jpeg",
+    "price": "5200",
     "id": 20
   },
   {
     "uri": "assets/images/TOKYO21.jpeg",
+    "price": "4200",
     "id": 21
   },
   {
     "uri": "assets/images/TOKYO22.jpeg",
+    "price": "3900",
     "id": 22
   },
   {
     "uri": "assets/images/TOKYO23.jpeg",
+    "price": "8500",
     "id": 23
   },
   {
     "uri": "assets/images/TOKYO24.jpeg",
+    "price": "7400",
     "id": 24
   },
   {
     "uri": "assets/images/TOKYO25.jpeg",
+    "price": "5300",
     "id": 25
   },
   {
     "uri": "assets/images/TOKYO26.jpeg",
+    "price": "6300",
     "id": 26
   },
   {
     "uri": "assets/images/TOKYO27.jpeg",
+    "price": "5300",
     "id": 27
   },
   {
     "uri": "assets/images/TOKYO28.jpeg",
+    "price": "6300",
     "id": 28
   },
   {
     "uri": "assets/images/TOKYO29.jpeg",
+    "price": "1700",
     "id": 29
   },
   {
     "uri": "assets/images/TOKYO30.jpeg",
+    "price": "4800",
     "id": 30
   },
   {
     "uri": "assets/images/TOKYO31.jpeg",
+    "price": "5500",
     "id": 31
   },
   {
     "uri": "assets/images/TOKYO32.jpeg",
+    "price": "4200",
     "id": 32
   },
   {
     "uri": "assets/images/TOKYO33.jpeg",
+    "price": "4400",
     "id": 33
   },
   {
     "uri": "assets/images/TOKYO34.jpeg",
+    "price": "4200",
     "id": 34
   },
   {
     "uri": "assets/images/TOKYO35.jpeg",
+    "price": "5200",
     "id": 35
   },
   {
     "uri": "assets/images/TOKYO36.jpeg",
+    "price": "2400",
     "id": 36
   },
   {
     "uri": "assets/images/TOKYO37.jpeg",
+    "price": "9900",
     "id": 37
   },
   {
     "uri": "assets/images/TOKYO38.jpeg",
+    "price": "7400",
     "id": 38
   },
   {
     "uri": "assets/images/TOKYO39.jpeg",
+    "price": "6300",
     "id": 39
   }
 ]

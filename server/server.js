@@ -1,13 +1,27 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const port = 4000;
-const picsUri = require("./data/tokyo.json");
+const tokyoController = require("./controllers/tokyoController");
+const landingController = require("./controllers/landingController");
+const signIn = require("./controllers/signIn");
+const signUp = require("./controllers/signUp");
+const port = process.env.PORT || 8001;
+const secretKey = process.env.SECRET_KEY;
+
+let users = []; // This Array is mockup DB
 
 app.use(cors());
 
-app.get("/api/tokyo", (req, res) => {
-  res.json(picsUri);
-});
+app.use(express.json());
+
+app.get("/api/tokyo", tokyoController);
+
+app.get("/api/landing", landingController);
+
+app.post("/api/register", signUp);
+
+app.post("/api/login", signIn);
 
 app.listen(port);
