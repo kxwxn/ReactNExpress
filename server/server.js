@@ -7,10 +7,11 @@ const tokyoController = require("./controllers/tokyoController");
 const landingController = require("./controllers/landingController");
 const signIn = require("./controllers/signIn");
 const signUp = require("./controllers/signUp");
-const port = process.env.PORT || 8001;
+const port = process.env.PORT;
 const secretKey = process.env.SECRET_KEY;
 
 let users = []; // This Array is mockup DB
+app.listen(port);
 
 app.use(cors());
 
@@ -23,5 +24,3 @@ app.get("/api/landing", landingController);
 app.post("/api/register", signUp);
 
 app.post("/api/login", signIn);
-
-app.listen(port);
