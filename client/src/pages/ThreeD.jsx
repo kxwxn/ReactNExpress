@@ -54,3 +54,9 @@ const ThreeD = () => {
 };
 
 export default ThreeD;
+
+
+// 1. scene, camera, light, shadow, setting
+// 2. .glb loader
+// 3. orbit setting
+// 4. groundMesh, groundGeometry

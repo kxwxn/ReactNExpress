@@ -36,10 +36,7 @@ const Cart = () => {
         </p>
 
         <p>price:{cartItem.price * cartItem.quantity}円</p>
-        <button onClick={() => deleteFromCart(cartItem.id)}>
-          {" "}
-          delete from cart
-        </button>
+        <button onClick={() => deleteFromCart(cartItem.id)}> REMOVE</button>
       </div>
     );
   });

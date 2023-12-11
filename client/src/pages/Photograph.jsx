@@ -9,7 +9,7 @@ const Photograph = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/tokyo");
+      const response = await axios.get("http://localhost:8001/api/tokyo");
       setPicture(
         response.data.map((rawData) => ({ ...rawData, quantity: 1 }))
         // 원래 배열의 요소들인 개체들을 펼친다음에 quantity 라는 속성을 주고 1의 값을준다.
